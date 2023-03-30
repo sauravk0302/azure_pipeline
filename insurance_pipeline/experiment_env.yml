@@ -1,0 +1,16 @@
+name: experiment_env
+dependencies:
+- python=3.8
+- scikit-learn
+- ipykernel
+- matplotlib
+- pandas
+- numpy
+- statsmodels
+- scipy
+- pip
+- pip:
+  - azureml-defaults
+  - pyarrow
+  - imblearn
+  
