@@ -24,7 +24,7 @@ run = Run.get_context()
 
 # load the prepared data file in the training folder
 print("Loading Data...")
-file_path = os.path.join(training_data,'prep_data.csv')
+file_path = os.path.join(training_data,'prep_data_new.csv')
 data_prep = pd.read_csv(file_path)
 
 
@@ -40,6 +40,7 @@ msl = args.min_samples_leaf
 print(ne, msl)
 
 X = data_prep.drop("fraud_reported",axis=1)
+print(X)
 y=data_prep["fraud_reported"]
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.7, random_state=1234)
@@ -50,7 +51,7 @@ X_train, y_train= sm.fit_resample(X_train, y_train.ravel())
 
 # Baseline Random forest based Model
 # rfc = RandomForestClassifier(n_estimators=ne, min_samples_leaf=msl)
-rfc = RandomForestClassifier()
+rfc = RandomForestClassifier(n_estimators=16,min_samples_leaf=5)
 
 rfcg = rfc.fit(X_train, y_train) # fit on training data
 Y_predict = rfcg.predict(X_test)

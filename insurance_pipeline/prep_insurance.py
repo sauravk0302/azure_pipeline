@@ -49,8 +49,8 @@ run.log('processed_rows', row_count)
 # Save the prepped data
 print("Saving Data...")
 os.makedirs(prep_folder, exist_ok=True)
-save_path_1 = os.path.join(prep_folder,'prep_data.csv')
-dataPrep.to_csv(save_path_1, index=False, header=True)
+save_path_2 = os.path.join(prep_folder,'prep_data_new.csv')
+dataPrep.to_csv(save_path_2, index=False, header=True)
 
 # End the run
 run.complete()
